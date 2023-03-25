@@ -30,9 +30,9 @@ node any {
     echo "wat the co heo 1"
     stage('Checkout') {
            echo "what the con heo 2"
-      dir('subDir') {
+  //    dir('subDir') {
       myRepo = checkout scm
-      }
+   //   }
              echo "what the con heo 3"
       gitBranchName = myRepo.GIT_BRANCH
       // gitBranchName2 = scm.branches[0].name.split("/")[1]
