@@ -34,6 +34,7 @@ node {
             echo "$gitBranchName"
       // gitBranchName2 = scm.branches[0].name.split("/")[1]
       gitBranchName = gitBranchName.substring(gitBranchName.lastIndexOf('/')+1, gitBranchName.length())
+      echo "$gitBranchName"
       shortGitCommit = "${myRepo.GIT_COMMIT[0..10]}"
       if(gitBranchName == 'master' || gitBranchName == 'main' || gitBranchName == 'production')
       {
