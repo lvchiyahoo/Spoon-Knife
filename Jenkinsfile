@@ -27,7 +27,9 @@ node any {
     def mailUserBuild
     // notifyBuild('STARTED')
     stage('Checkout') {
+      echo "before checkout"
       myRepo = checkout scm
+      echo "after chekout scm"
       gitBranchName = myRepo.GIT_BRANCH
       // gitBranchName2 = scm.branches[0].name.split("/")[1]
       gitBranchName = gitBranchName.substring(gitBranchName.lastIndexOf('/')+1, gitBranchName.length())
