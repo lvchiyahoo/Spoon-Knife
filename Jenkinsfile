@@ -5,7 +5,7 @@
 // ============================START============================
 
 properties([pipelineTriggers([githubPush()])])
-node ('Built-In node') {
+node (any) {
   try {
     def namespace = 'pharmacy'
     def imageName = 'pmc-devops-nginx-sample'
