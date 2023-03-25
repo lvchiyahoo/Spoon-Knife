@@ -3,15 +3,14 @@
 // Blog: itblognote.com
 // Description: Code pipeline for Jenkins all service Pharmacity
 // ============================START============================
-
 properties([pipelineTriggers([githubPush()])])
-node any {
+node('master-local'){
   try {
     def namespace = 'pharmacy'
     def imageName = 'pmc-devops-nginx-sample'
     def releaseName = 'pmc-devops-nginx-sample'
     def chartName = 'general-application'
-    def repository = 'https://github.com/lvchiyahoo/Spoon-Knife.git'
+    def repository = 'https://github.com/Pharmacity-JSC/pmc-devops-nginx-sample'
     def buildDockerENV = 'false'
     def environment
     def myRepo
@@ -27,18 +26,11 @@ node any {
     def userBuild
     def mailUserBuild
     // notifyBuild('STARTED')
-    echo "wat the co heo 1"
     stage('Checkout') {
-           echo "what the con heo 2"
-  //    dir('subDir') {
       myRepo = checkout scm
-   //   }
-             echo "what the con heo 3"
       gitBranchName = myRepo.GIT_BRANCH
       // gitBranchName2 = scm.branches[0].name.split("/")[1]
       gitBranchName = gitBranchName.substring(gitBranchName.lastIndexOf('/')+1, gitBranchName.length())
-      //echo gitBranchName
-      echo "what the con heo"
       shortGitCommit = "${myRepo.GIT_COMMIT[0..10]}"
       if(gitBranchName == 'master' || gitBranchName == 'main' || gitBranchName == 'production')
       {
@@ -258,7 +250,7 @@ def notifyBuild(String buildStatus = 'STARTED') {
   buildStatus = buildStatus ?: 'SUCCESS'
 
   def mailSubject = "[${buildStatus}]: Jenkins Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'"
-  def mailTo  = 'lvchi@yahoo.com'
+  def mailTo  = 'phat.dangthanh@pharmacity.vn'
   def mailDetails = """
       Jobs you building is failed. Please, check it !
 [+] Project: ${env.JOB_NAME} [${env.BUILD_NUMBER}]
