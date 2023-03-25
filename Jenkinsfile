@@ -36,6 +36,7 @@ node {
       gitBranchName = gitBranchName.substring(gitBranchName.lastIndexOf('/')+1, gitBranchName.length())
       echo "$gitBranchName"
       shortGitCommit = "${myRepo.GIT_COMMIT[0..10]}"
+      echo "shortGitCommit $shortGitCommit"
       if(gitBranchName == 'master' || gitBranchName == 'main' || gitBranchName == 'production')
       {
         echo "Working on branch ${gitBranchName}...!"
