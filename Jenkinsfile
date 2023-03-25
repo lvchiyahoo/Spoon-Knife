@@ -45,10 +45,10 @@ node {
         awsAccount = 'aws_account_prod'
         dockerImageTag = "${environment}.${shortGitCommit}"
         dockerImageTagLatest = "${environment}.latest"
-        withCredentials([aws(credentialsId: 'aws_account_prod', accessKeyVariable: 'aws_access_key_id', secretKeyVariable: 'aws_secret_access_key')]) {
-          awsAccessKeyID = "${aws_access_key_id}"
-          awsSecretKeyID = "${aws_secret_access_key}"
-        }
+       // withCredentials([aws(credentialsId: 'aws_account_prod', accessKeyVariable: 'aws_access_key_id', secretKeyVariable: 'aws_secret_access_key')]) {
+         // awsAccessKeyID = "${aws_access_key_id}"
+          //awsSecretKeyID = "${aws_secret_access_key}"
+    //    }
       }  
       else if(gitBranchName == 'staging' || gitBranchName == 'stag' || gitBranchName == 'stg')
       {
