@@ -4,7 +4,7 @@
 // Description: Code pipeline for Jenkins all service Pharmacity
 // ============================START============================
 properties([pipelineTriggers([githubPush()])])
-node(any) {
+node any {
   try {
     def namespace = 'pharmacy'
     def imageName = 'pmc-devops-nginx-sample'
