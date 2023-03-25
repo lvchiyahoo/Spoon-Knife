@@ -31,6 +31,7 @@ node {
       myRepo = checkout scm
       echo "after chekout scm"
       gitBranchName = myRepo.GIT_BRANCH
+            echo "$gitBranchName"
       // gitBranchName2 = scm.branches[0].name.split("/")[1]
       gitBranchName = gitBranchName.substring(gitBranchName.lastIndexOf('/')+1, gitBranchName.length())
       shortGitCommit = "${myRepo.GIT_COMMIT[0..10]}"
