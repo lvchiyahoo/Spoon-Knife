@@ -95,7 +95,9 @@ node {
 
     stage("Slack") {
       userBuild = sh(script: 'set +x; echo $(git show -s --pretty=%an)', returnStdout: true).trim()
+      echo "$userBuild"
       mailUserBuild = sh(script: 'set +x; echo $(git show -s --pretty=%ae)', returnStdout: true).trim()
+      echo "$mailUserBuild"
       slackSend(
         color: "good", 
         message: "Project: ${repository} is building...!\nOn Branch: ${gitBranchName}\nBy User: ${userBuild}\nMail: ${mailUserBuild}"
