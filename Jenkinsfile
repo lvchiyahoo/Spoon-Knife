@@ -101,7 +101,7 @@ node {
 
     echo "Project: ${repository} is building...!\nOn Branch: ${gitBranchName}\nBy User: ${userBuild}\nMail: ${mailUserBuild}"
 
-     slackslackSend(
+    slackSend(
         color: "good", 
         message: "Project: ${repository} is building...!\nOn Branch: ${gitBranchName}\nBy User: ${userBuild}\nMail: ${mailUserBuild}"
       )
