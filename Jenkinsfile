@@ -31,7 +31,7 @@ node {
       myRepo = checkout scm
       echo "after chekout scm"
       gitBranchName = myRepo.GIT_BRANCH
-            echo "$gitBranchName"
+            echo "${gitBranchName}"
       // gitBranchName2 = scm.branches[0].name.split("/")[1]
       gitBranchName = gitBranchName.substring(gitBranchName.lastIndexOf('/')+1, gitBranchName.length())
       echo "$gitBranchName"
@@ -271,8 +271,8 @@ def notifyBuild(String buildStatus = 'STARTED') {
 [+] Project: ${env.JOB_NAME} [${env.BUILD_NUMBER}]
 [+] URL: ${env.BUILD_URL}
   """
-echo "$mailSubject"
-echo "$mailDetails"
+echo "${mailSubject}"
+echo "${mailDetails}"
   emailext (
     subject: mailSubject,
     to: mailTo,
