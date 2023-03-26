@@ -27,6 +27,7 @@ node {
     def mailUserBuild
     // notifyBuild('STARTED')
     stage('Checkout') {
+      echo " this is DEV branch"
       echo "before checkout"
       myRepo = checkout scm
       echo "after chekout scm"
