@@ -101,10 +101,7 @@ node {
 
     echo "Project: ${repository} is building...!\nOn Branch: ${gitBranchName}\nBy User: ${userBuild}\nMail: ${mailUserBuild}"
 
-        // slackSend(
-        //   color: "good", 
-        //   message: "Project: ${repository} is building...!\nOn Branch: ${gitBranchName}\nBy User: ${userBuild}\nMail: ${mailUserBuild}"
-        // )
+     slack
     }
 
     stage('Build docker') {
