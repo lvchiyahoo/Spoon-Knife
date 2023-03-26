@@ -10,7 +10,7 @@ node {
     def imageName = 'pmc-devops-nginx-sample'
     def releaseName = 'pmc-devops-nginx-sample'
     def chartName = 'general-application'
-    def repository = 'https://github.com/Pharmacity-JSC/pmc-devops-nginx-sample'
+    def repository = 'https://github.com/lvchiyahoo/Spoon-Knife'
     def buildDockerENV = 'false'
     def environment
     def myRepo
