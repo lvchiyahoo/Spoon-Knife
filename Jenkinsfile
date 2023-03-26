@@ -276,7 +276,8 @@ echo "maildetials ${mailDetails}"
 echo "mailto ${mailTo}"
   emailext (
     subject: mailSubject,
-    to: mailTo,
+   // to: mailTo,
+   recipientProviders: mailTo,
     body: mailDetails
   ) 
 }
