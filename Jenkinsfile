@@ -98,6 +98,9 @@ node {
       echo "$userBuild"
       mailUserBuild = sh(script: 'set +x; echo $(git show -s --pretty=%ae)', returnStdout: true).trim()
       echo "$mailUserBuild"
+
+    echo "Project: ${repository} is building...!\nOn Branch: ${gitBranchName}\nBy User: ${userBuild}\nMail: ${mailUserBuild}"
+
         // slackSend(
         //   color: "good", 
         //   message: "Project: ${repository} is building...!\nOn Branch: ${gitBranchName}\nBy User: ${userBuild}\nMail: ${mailUserBuild}"
@@ -109,6 +112,10 @@ node {
         withEnv(["AWS_DEFAULT_REGION=${aws_region}",
           "AWS_ACCESS_KEY_ID=${awsAccessKeyID}",
           "AWS_SECRET_ACCESS_KEY=${awsSecretKeyID}"]){
+
+            //echo "set +x; aws ecr describe-repositories --repository-names ${imageName} 2>&1 > /dev/null || aws ecr create-repository --repository-name ${imageName} --image-scanning-configuration scanOnPush=true"
+
+
           sh "set +x; aws ecr describe-repositories --repository-names ${imageName} 2>&1 > /dev/null || aws ecr create-repository --repository-name ${imageName} --image-scanning-configuration scanOnPush=true"
           docker.withRegistry("https://${ecr_url}", "ecr:${aws_region}:${awsAccount}") {
             if(buildDockerENV == 'false')
