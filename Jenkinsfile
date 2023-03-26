@@ -264,7 +264,7 @@ def notifyBuild(String buildStatus = 'STARTED') {
   buildStatus = buildStatus ?: 'SUCCESS'
 
   def mailSubject = "[${buildStatus}]: Jenkins Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'"
-  def mailTo  = 'phat.dangthanh@pharmacity.vn'
+  def mailTo  = 'levanchi.it@gmail.com'
   def mailDetails = """
       Jobs you building is failed. Please, check it !
 [+] Project: ${env.JOB_NAME} [${env.BUILD_NUMBER}]
