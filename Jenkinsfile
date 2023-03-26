@@ -271,8 +271,9 @@ def notifyBuild(String buildStatus = 'STARTED') {
 [+] Project: ${env.JOB_NAME} [${env.BUILD_NUMBER}]
 [+] URL: ${env.BUILD_URL}
   """
-echo "${mailSubject}"
-echo "${mailDetails}"
+echo "mailsubject ${mailSubject}"
+echo "maildetials ${mailDetails}"
+echo "mailto ${mailTo}"
   emailext (
     subject: mailSubject,
     to: mailTo,
